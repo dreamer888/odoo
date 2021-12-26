@@ -9,3 +9,5 @@ ODOO是来自欧洲的优秀的开源的ERP，功能强大，模块众多，自�
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/1226/220519_d87a32b1_1461824.jpeg "设置-报表.jpg")
 
 ![输入图片说明](%E5%BA%93%E5%AD%98-%E4%BA%A7%E5%93%81.jpg)
+
+![输入图片说明](odoo14-menu.png)
