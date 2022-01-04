@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_expand_contacts_form" model="ir.ui.view">
+        <field name="name">expand.contact.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat"  position="after">
+
+                <field name="industry"   string="行业"  attrs="{}" nolabel="0"/>
+                <field name="project_scope"  string="项目范围"   attrs="{}" nolabel="0"/>
+
+            </field>
+            <field name="category_id"  position="after">
+                 <field name="is_need_train" string="需要内审培训"   nolabel="0" optional="show"/>
+                <div class="oe_button_box" name="button_box">
+
+
+</div>
+
+            </field>
+
+                 <notebook position="inside"    colspan="5">
+
+
+
+                 <page string="认证项目"   >
+                     <field name="project_child_ids">
+                           <tree editable="bottom">
+
+                                   <field name="project_name"     string="项目名称" />
+
+                               <field name="is_high_tech"     string="是否高新" />
+                                 <field name="people_amount"     string="企业人数"/>
+                                   <field name="is_authed"     string="已经认证"      />
+                                    <field name="reserve_date1"     string="到期日期"   attrs="{'invisible': [('is_authed', '=', False)],'readonly': [('is_authed', '=', False)]}"    />
+                                    <field name="auth_company_name"     string="认证公司名称"   attrs="{'invisible': [('is_authed', '=', False)] ,'readonly': [('is_authed', '=', False)]}"/>
+
+                           </tree>
+                      </field>
+                </page>
+
+             <page string="附件"  >
+
+               <!-- <button name="action_get_attachment_view" class="oe_stat_button" icon="fa-book" type="object">
+                       <field name="attachment_number" widget="statinfo" string="上传附件"/>
+                </button>-->
+
+                 <div class="oe_button_box" name="button_box">
+                     <button name="attachment_image_preview" type="object" class="oe_stat_button" icon="fa-book"  >
+                         <i class="border-left fa fa-chevron-right p-2" />
+                      <field name="attachment_number" widget="statinfo"/>
+                          <div class="o_stat_info">
+                         <!-- <span class="o_stat_text">附件</span>-->
+                         </div>
+                     </button>
+                </div>
+
+
+
+             </page>
+
+
+             </notebook>
+
+        </field>
+    </record>
+
+
+   <record id="view_contacts_expand_tree" model="ir.ui.view">
+            <field name="name">contacts.expand.tree</field>
+            <field name="model">res.partner</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="parent_id"  position="after">
+
+                      <field name="is_high_tech" string="高新企业"   optional="show"   />
+                      <field name="is_need_train" string="需要内审培训"   optional="show"/>
+                    <field name="industry" string="行业"  optional="hide"/>
+                    <field name="project_scope" string="项目范围"  optional="hide"/>
+
+                </field>
+            </field>
+        </record>
+
+</odoo>

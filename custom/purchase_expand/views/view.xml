@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_order_form_xxx_date_expand" model="ir.ui.view">
+        <field name="name">purchase.order.form.xxx.date</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_ref"  position="after">
+                <!-- invisible="1" -->
+               <!-- <field name="xxx_date" attrs="{'required': [('state', 'in', ['sale', 'done'])], 'invisible': [('state', 'in', ['draft', 'sent'])]}" nolabel="1"/>-->
+                <field name="reserve_date1"   string="认证日期"  attrs="{}" nolabel="0"/>
+                <field name="reserve_date2"  string="完成日期"   attrs="{}" nolabel="0"/>
+                  <field name="reserve_date3"  string="出证日期"   attrs="{}" nolabel="0"/>
+                <!--<label for="xxx_date" string="xxx_日期" />-->
+            </field>
+
+        </field>
+    </record>
+
+    <!--询价单-->
+
+   <record id="purchase_order_tree_expand" model="ir.ui.view">
+            <field name="name">purchase.order.tree.xxx.date_expand</field>
+            <field name="model">purchase.order</field>
+              <field name="priority" eval="1"/>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id"  position="after">
+
+                    <field name="reserve_date1" string="认证日期" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="完成日期" widget="date" optional="show"/>
+                    <field name="reserve_date3" string="出证日期" widget="date" optional="hide"/>
+
+                </field>
+            </field>
+        </record>
+
+        <record id="purchase_order_view_tree_expand" model="ir.ui.view">
+            <field name="name">purchase.order.quotation.xxx_date_tree</field>
+            <field name="model">purchase.order</field>
+            <field name="priority">4</field>
+            <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="date_planned"  position="after">
+
+                     <field name="reserve_date1" string="认证日期" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="完成日期" widget="date" optional="show"/>
+                    <field name="reserve_date3" string="出证日期" widget="date" optional="hide"/>
+
+                </field>
+            </field>
+        </record>
+
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<odoo>
+
+<!--
+
+    <menuitem id="expand_menu"  name="扩展配置"   parent="sale_menu_root" sequence="1" />
+
+    <menuitem id="menu_expand_config" name="扩展配置" parent="expand_menu" action="sales_expand_action"    sequence="2" />
+
+    <record id="sales_expand_action" model="ir.actions.act_window">
+            <field name="name">expand action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+
+    </record>
+
+     <record id="sale_order_action_view_expand_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_expand_tree"/>
+            <field name="act_window_id" ref="sales_expand_action"/>
+     </record>
+
+        <record id="sale_order_action_view_expand_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_expand_form"/>
+            <field name="act_window_id" ref="sales_expand_action"/>
+     </record>
+
+
+        <record id="view_expand_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order.expand</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <tree string="expand config"   sample="1">
+                    <field name="reserve_date1" string="reserve_date1" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="reserve_date2" widget="date" optional="show"/>
+                </tree>
+            </field>>
+        </record>
+
+
+    <record id="view_expand_form" model="ir.ui.view">
+            <field name="name">sale.expand.form</field>
+            <field name="model">sale.order.expand</field>
+            <field name="arch" type="xml">
+              <form string="设置时间" >
+
+                     <field name="reserve_date1" string="reserve date1" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="reserve date2" widget="date" optional="hide"/>
+              </form>
+            </field>>
+    </record>
+
+
+-->
+
+
+</odoo>

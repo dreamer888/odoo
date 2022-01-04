@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_order_form_xxx_date" model="ir.ui.view">
+        <field name="name">sale.order.form.xxx.date</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id"  position="after">
+                <!-- invisible="1" -->
+               <!-- <field name="xxx_date" attrs="{'required': [('state', 'in', ['sale', 'done'])], 'invisible': [('state', 'in', ['draft', 'sent'])]}" nolabel="1"/>-->
+                <field name="reserve_date1"   string="认证日期"  attrs="{}" nolabel="0"/>
+                <field name="reserve_date2"  string="完成日期2"   attrs="{}" nolabel="0"/>
+                  <field name="reserve_date3"  string="出证日期2"   attrs="{}" nolabel="0"/>
+                <!--<label for="xxx_date" string="xxx_日期" />-->
+            </field>
+            <field name="partner_id"  position="after">
+                 <field name="is_need_train" string="需要内审培训"  optional="show"/>
+                 </field>
+
+        </field>
+    </record>
+
+   <record id="view_order_xxx_date_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree.xxx.date</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="expected_date"  position="after">
+                      <field name="is_need_train" string="需要内审培训"   optional="show"/>
+                    <field name="reserve_date1" string="认证日期" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="完成日期" widget="date" optional="hide"/>
+                    <field name="reserve_date3" string="出证日期" widget="date" optional="hide"/>
+
+                </field>
+            </field>
+        </record>
+
+        <record id="view_order_quotation_xxx_date_tree" model="ir.ui.view">
+            <field name="name">sale.order.quotation.xxx_date_tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">4</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <field name="expected_date"  position="after">
+                     <field name="is_need_train" string="需要内审培训"   optional="show"/>
+                     <field name="reserve_date1" string="认证日期" widget="date" optional="show"/>
+                    <field name="reserve_date2" string="完成日期" widget="date" optional="hide"/>
+                    <field name="reserve_date3" string="出证日期" widget="date" optional="hide"/>
+
+                </field>
+            </field>
+        </record>
+
+</odoo>
